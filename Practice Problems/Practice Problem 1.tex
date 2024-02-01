@@ -1,0 +1,90 @@
+%! Author = Ian Chen
+%! Date = 2/1/2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{calc}
+\usepackage{amsthm}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\author{Ian Chen}
+\title{Practice Problem 1}
+
+\newtheoremstyle{description}
+{25pt}{\topsep}{\normalfont}{}{\bfseries}{ \textemdash}{ }{}
+\newtheoremstyle{break}
+{\topsep}{\topsep}{\itshape}{}{\bfseries}{}{\newline}{}
+
+\theoremstyle{description}
+\newtheorem{problem}{Problem}
+\theoremstyle{break}
+\newtheorem*{answer}{Answer}
+
+% Document
+\begin{document}
+    \maketitle
+
+    \setcounter{problem}{-1}
+    \begin{problem}
+        What is the class label?
+        What are the attributes?
+    \end{problem}
+    \begin{answer}
+        % TODO Add answer
+    \end{answer}
+
+    \begin{problem}
+        Start by calculating the impurity of the parent.
+        Use entropy as the measure of impurity.
+    \end{problem}
+    \begin{answer}
+        % TODO Add answer
+    \end{answer}
+
+    \begin{problem}
+        Next, calculate the information gain of splitting on 'Passed All Assignments'.
+        The gain of splitting on 'Passed All Assignments' will be the entropy of the parent minus
+        the entropy of making this split.
+        (We want to know how much the impurity decreases by making this split.)
+    \end{problem}
+    \begin{answer}
+        % TODO Add answer
+    \end{answer}
+
+    \begin{problem}
+        Next, calculate the information gain of splitting on 'Language'.
+        The gain of splitting on 'Language' will be the entropy of the parent minus the entropy of
+        making this split.
+        (We want to know how much the impurity decreases by making this split.)
+    \end{problem}
+    \begin{answer}
+        % TODO Add answer
+    \end{answer}
+
+    \begin{problem}
+        Next, calculate the information gain of splitting on 'GPA'.
+        Because GPA is a continuous attribute, we need to try different candidate threshold values.
+        Determine all of the candidate thresholds, then calculate the information gain for each
+        of them.
+    \end{problem}
+    \begin{answer}
+        % TODO Add answer
+    \end{answer}
+
+    \begin{problem}
+        Impurity metrics(like Gini and entropy) favor attributes with more values.
+        Because 'Language' can be split 3 ways, but 'Passed All Assignments' and 'GPA' are only
+        split 2 ways, we should use gain ratio to compare the attributes, rather than just gain.
+        Calculate the split info for each of the three attributes.
+        With that, calculate the gain ratio for each of the three attributes.
+    \end{problem}
+    \begin{answer}
+        % TODO Add answer
+    \end{answer}
+\end{document}
