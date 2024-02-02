@@ -36,7 +36,8 @@
         What are the attributes?
     \end{problem}
     \begin{answer}
-        % TODO Add answer
+        Class label- Passed exam\newline
+        Attributes- Passed all assignments, GPA, Language
     \end{answer}
 
     \begin{problem}
@@ -44,7 +45,13 @@
         Use entropy as the measure of impurity.
     \end{problem}
     \begin{answer}
-        % TODO Add answer
+        Entropy = $\sum_{i=1}^{n} -p_i \log_2 p_i$\newline
+        There are 3 NOs and 4 YESs\newline
+        $p_{NO} = \frac{3}{7}$\newline
+        $p_{YES} = \frac{4}{7}$\newline
+        Entropy = $-p_{NO} \log_{2}( p_{NO}) - p_{YES} \log_{2}(p_{YES})$\newline
+        = $-\frac{3}{7} \log_{2}(\frac{3}{7}) - \frac{4}{7} \log_{2}(\frac{4}{7})$\newline
+        = 0.985228136\newline
     \end{answer}
 
     \begin{problem}
@@ -54,7 +61,21 @@
         (We want to know how much the impurity decreases by making this split.)
     \end{problem}
     \begin{answer}
-        % TODO Add answer
+        \begin{tabular}{c|c|c}
+             & Didn't Pass All Assignments & Passed All Assignments \\
+            \hline
+            NO & 1 & 2 \\
+            YES & 2 & 2 \\
+        \end{tabular}\newline
+        Left branch: $p_{NO} = \frac{1}{3}$, $p_{YES} = \frac{2}{3}$\newline
+        Entropy = $-\frac{1}{3}log_{2}(\frac{1}{3}) - \frac{2}{3}log_{2}(\frac{2}{3})$\newline
+        = 0.9182958341\newline
+        Right branch: $p_{NO} = \frac{2}{4}$, $p_{YES} = \frac{2}{4}$\newline
+        Entropy = $-\frac{1}{2}log_{2}(\frac{1}{2}) - \frac{1}{2}log_{2}(\frac{1}{2})$\newline
+        = 1\newline
+        Information Gain = Entropy(parent) - ($\sum_{i=1}^{k} \frac{n_{i}}{n}Impurity(i)$)\newline
+        = 0.985228136 - $(\frac{3}{7}0.9182958341 + \frac{4}{7}1)$\newline
+        = 0.0202442071\newline
     \end{answer}
 
     \begin{problem}
@@ -64,7 +85,24 @@
         (We want to know how much the impurity decreases by making this split.)
     \end{problem}
     \begin{answer}
-        % TODO Add answer
+        \begin{tabular}{c|c|c|c}
+             & Python & Java & C++ \\
+            \hline
+            NO & 2 & 1 & 0\\
+            YES & 1 & 1 & 2\\
+        \end{tabular}\newline
+        Left branch: $p_{NO} = \frac{2}{3}$, $p_{YES} = \frac{1}{3}$\newline
+        Entropy = $-\frac{2}{3}log_{2}(\frac{2}{3}) - \frac{1}{3}log_{2}(\frac{1}{3})$\newline
+        = 0.9182958341\newline
+        Middle branch: $p_{NO} = \frac{1}{2}$, $p_{YES} = \frac{1}{2}$\newline
+        Entropy = $-\frac{1}{2}log_{2}(\frac{1}{2}) - \frac{1}{2}log_{2}(\frac{1}{2})$\newline
+        = 1\newline
+        Right branch: $p_{NO} = \frac{0}{2}$, $p_{YES} = \frac{2}{2}$\newline
+        Entropy = $-\frac{0}{2}log_{2}(\frac{0}{2}) - \frac{2}{2}log_{2}(\frac{2}{2})$\newline
+        = 0\newline
+        Information Gain = 0.985228136 -
+        $(\frac{3}{7}\cdot 0.9182958341 + \frac{2}{7}\cdot 1 + \frac{2}{7}\cdot 0)$\newline
+        = 0.3059584928\newline
     \end{answer}
 
     \begin{problem}
