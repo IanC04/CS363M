@@ -1,0 +1,84 @@
+%! Author = Ian Chen
+%! Date = 2/6/2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{calc}
+\usepackage{amsthm}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\author{Ian Chen}
+\title{Practice Problem 2}
+
+\newtheoremstyle{description}
+{25pt}{\topsep}{\normalfont}{}{\bfseries}{ \textemdash}{ }{}
+\newtheoremstyle{break}
+{\topsep}{\topsep}{\itshape}{}{\bfseries}{}{\newline}{}
+
+\theoremstyle{description}
+\newtheorem{problem}{Problem}
+\theoremstyle{break}
+\newtheorem*{answer}{Answer}
+
+% Document
+\begin{document}
+    \maketitle
+
+    \begin{problem}
+        Find the equation for the least-squares regression line for this dataset by hand and show
+        your work.
+    \end{problem}
+    \begin{answer}
+        $\hat{\beta_{0}} = \bar{Y} - \hat{\beta_{1}}\bar{X}$\newline
+        $\hat{\beta_{1}} = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sum (X_i - \bar{X})^2}$\newline
+        \begin{tabular}{c|c}
+            X & Y \\
+            \hline
+            2 & 50 \\
+            3 & 71 \\
+            4 & 87 \\
+            5 & 95 \\
+        \end{tabular}\newline
+        $\bar{X} = \frac{2 + 3 + 4 + 5}{4} = 3.5$\newline
+        $\bar{Y} = \frac{50 + 71 + 87 + 95}{4} = 75.75$\newline
+        $\sum (X_i - \bar{X})^2 = (2 - 3.5)^2 + (3 - 3.5)^2 + (4 - 3.5)^2 + (5 - 3.5)^2 = (-1.5)^2
+        + (-0.5)^2 + (0.5)^2 + (1.5)^2 = 4.78125$\newline
+        $\sum (X_i - \bar{X})(Y_i - \bar{Y}) = (2 - 3.5)(50 - 75.75) + (3 - 3.5)(71 - 75.75) + (4 - 3.5)(87 - 75.75) + (5 - 3.5)(95 - 75.75)
+        = (-1.5)(-25.75) + (-0.5)(-4.75) + (0.5)(11.25) + (1.5)(19.25) = 75.5$\newline
+        $\hat{\beta_{1}} = \frac{75.5}{4.78125} = 15.79084967$\newline
+        $\hat{\beta_{0}} = 75.75 - 15.79084967(3.5) = 20.48202614$\newline
+    \end{answer}
+
+    \begin{problem}
+        Using your regression model, predict the exam grade for someone who studied for 30 minutes.
+    \end{problem}
+    \begin{answer}
+        $Y = \hat{\beta_{1}}X + \hat{\beta_{0}}$\newline
+        30 minutes = 0.5 hours\newline
+        $Y = 15.79084967(0.5) + 20.48202614 = 28.37745098$\newline
+    \end{answer}
+
+    \begin{problem}
+        Calculate the $R^2$ of your model by hand and show your work.
+    \end{problem}
+    \begin{answer}
+        $mean = \bar{y} = \frac{50 + 71 + 87 + 95}{4} = 75.75$\newline
+        Var(mean) = $\frac{\sum_{i=1}^{n} (y_i - \bar{y})^2}{n}$\newline
+        $Var(mean) = \frac{(50 - 75.75)^2 + (71 - 75.75)^2 + (87 - 75.75)^2 + (95 - 75.75)^2}{4} = \frac{1182.75}{4} = 295.6875$\newline
+        Var(fit) = $\frac{\sum_{i=1}^{n} (y_i - \hat{y_i})^2}{n}$\newline
+        Best fit line: $f(x) = 15.79084967x + 20.48202614$\newline
+        $Var(fit) = \frac{(50 - f(2))^2 + (71 - f(3))^2 + (87 - f(4))^2 + (95 - f(5))^2}{4}$\newline
+        $= \frac{(50 - 52.06372549)^2 + (71 - 67.85457516)^2 + (87 - 83.64542484)^2 + (95 - 99
+        .43627451)^2}{4}$\newline
+        $= \frac{(-2.06372549)^2 + (3.14542484)^2 + (3.35457516)^2 + (-4.43627451)^2}{4}$\newline
+        $= \frac{4.258962898 + 9.893697424 + 11.2531745 + 19.68053153}{4}$\newline
+        $= \frac{45.08636635}{4} = 11.27159159$\newline
+        $R^2 = \frac{Var(mean) - Var(fit)}{Var(mean)} = \frac{295.6875 - 11.27159159}{295.6875} = 0.9618800538$
+    \end{answer}
+\end{document}
