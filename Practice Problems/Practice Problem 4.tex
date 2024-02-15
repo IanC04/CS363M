@@ -1,0 +1,62 @@
+%! Author = Ian Chen
+%! Date = 2/15/2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{calc}
+\usepackage{amsthm}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\author{Ian Chen}
+\title{Practice Problem 4}
+
+\newtheoremstyle{description}
+{25pt}{\topsep}{\normalfont}{}{\bfseries}{ \textemdash}{ }{}
+\newtheoremstyle{break}
+{\topsep}{\topsep}{\itshape}{}{\bfseries}{}{\newline}{}
+
+\theoremstyle{description}
+\newtheorem{problem}{Problem}
+\theoremstyle{break}
+\newtheorem*{answer}{Answer}
+
+% Document
+\begin{document}
+    \maketitle
+
+    \begin{problem}
+        Do I believe that a patient with the following symptoms has the flu?\\
+        \{$Y_c, N_r, Mild_h, Y_f, ?_{flu}$\}
+    \end{problem}
+    \begin{answer}
+        $P(C\mid X) = \frac{P(X \mid C)P(C)}{P(X)}$\\
+        We don't calculate $P(X)$ since it is the same for all cases.\\
+        $P(Y_{flu} \mid \{Y_c, N_r, Mild_h, Y_f\}) \propto P(Y_c \mid Y_{flu})
+        \cdot P(N_r \mid Y_{flu}) \cdot P(Mild_h \mid Y_{flu}) \cdot P(Y_f \mid Y_{flu})
+        \cdot P(Y_{flu})$\\
+        $P(Y_c \mid Y_{flu}) = \frac{3}{5}$\\
+        $P(N_r \mid Y_{flu}) = \frac{5}{5}$\\
+        $P(Mild_h \mid Y_{flu}) = \frac{2}{5}$\\
+        $P(Y_f \mid Y_{flu}) = \frac{4}{5}$\\
+        $P(Y_{flu}) = \frac{5}{8}$\\
+        Multiplying these together gives us $\frac{3}{5} \cdot \frac{5}{5} \cdot
+        \frac{2}{5} \cdot \frac{4}{5} \cdot \frac{5}{8}$\\
+        $= \frac{3}{25}$\\
+        $P(N_{flu} \mid \{Y_c, N_r, Mild_h, Y_f\}) \propto P(Y_c \mid N_{flu}) \cdot
+        P(N_r \mid N_{flu}) \cdot P(Mild_h \mid N_{flu}) \cdot P(Y_f \mid N_{flu})$\\
+        $P(Y_c \mid N_{flu}) = \frac{1}{3}$\\
+        $P(N_r \mid N_{flu}) = \frac{2}{3}$\\
+        $P(Mild_h \mid N_{flu}) = \frac{1}{3}$\\
+        $P(Y_f \mid N_{flu}) = \frac{1}{3}$\\
+        Multiplying these together gives us $\frac{1}{3} \cdot \frac{2}{3} \cdot
+        \frac{1}{3} \cdot \frac{1}{3}$\\
+        $= \frac{2}{81}$\\
+        $\therefore$, the patient likely has the flu.
+    \end{answer}
+\end{document}
