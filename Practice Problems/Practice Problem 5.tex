@@ -1,0 +1,91 @@
+%! Author = Ian Chen
+%! Date = 2/20/2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{calc}
+\usepackage{amsthm}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\author{Ian Chen}
+\title{Practice Problem 5}
+
+\newtheoremstyle{description}
+{25pt}{\topsep}{\normalfont}{}{\bfseries}{ \textemdash}{ }{}
+\newtheoremstyle{break}
+{\topsep}{\topsep}{\itshape}{}{\bfseries}{}{\newline}{}
+
+\theoremstyle{description}
+\newtheorem{problem}{Problem}
+\theoremstyle{break}
+\newtheorem*{answer}{Answer}
+
+% Document
+\begin{document}
+    \maketitle
+
+    \begin{problem}
+        Create the confusion matrix for both models.
+    \end{problem}
+    \begin{answer}
+        \begin{tabular}{c|c|c}
+            Model 1   & Predicted(+) & Predicted(-) \\
+            \hline
+            Actual(+) & 3            & 2            \\
+            \hline
+            Actual(-) & 1            & 4            \\
+        \end{tabular}
+        \begin{tabular}{c|c|c}
+            Model 2   & Predicted(+) & Predicted(-) \\
+            \hline
+            Actual(+) & 5            & 0            \\
+            \hline
+            Actual(-) & 4            & 1            \\
+        \end{tabular}
+    \end{answer}
+
+    \begin{problem}
+        Calculate the accuracy of each model.
+        Which model is better on the basis of accuracy?
+    \end{problem}
+    \begin{answer}
+        Accuracy = (TP + TN) / n\\
+        Model 1: (3 + 4) / 10 = 0.7\\
+        Model 2: (5 + 1) / 10 = 0.6\\
+        Model 1 has a higher accuracy.
+    \end{answer}
+
+    \begin{problem}
+        Calculate the true positive rate (TPR) of each model.
+        Which model is better on the basis of TPR?
+    \end{problem}
+    \begin{answer}
+        TPR = TP / (TP + FN)\\
+        Model 1: 3 / (3 + 2) = 0.6\\
+        Model 2: 5 / (5 + 0) = 1\\
+        Model 2 has a higher TPR.
+    \end{answer}
+
+    \begin{problem}
+        Calculate the F-measure (of the positive class only) for each model.
+        Which model is better on the basis of F-measure?
+    \end{problem}
+    \begin{answer}
+        precision = TP / (TP + FP)\\
+        recall = TP / (TP + FN)\\
+        F = $\frac{2 \times precision \times recall}{precision + recall}$\\
+        precision$_1$ = $\frac{3}{3 + 1}$ = 0.75\\
+        recall$_1$ = $\frac{3}{3 + 2}$ = 0.6\\
+        F$_1$ = $\frac{2 \times 0.75 \times 0.6}{0.75 + 0.6}$ = 0.6667\\
+        precision$_2$ = $\frac{5}{5 + 4}$ = 0.5556\\
+        recall$_2$ = $\frac{5}{5 + 0}$ = 1\\
+        F$_2$ = $\frac{2 \times 0.5556 \times 1}{0.5556 + 1}$ = 0.7143\\
+        Model 2 has a higher F-measure.
+    \end{answer}
+\end{document}
