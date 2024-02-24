@@ -1,0 +1,165 @@
+%! Author = Ian
+%! Date = 2/23/2024
+
+% Preamble
+\documentclass{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage[top=2cm, left=2cm, right=2cm, bottom=2cm]{geometry}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\setlength{\columnsep}{0.5cm}
+
+\author{Ian Chen}
+\date{\today}
+
+% Header
+\fancyhf{}
+\fancyhead[L]{Ian Chen}
+\fancyhead[C]{CS363M Notes}
+\fancyhead[R]{ic8683}
+\pagestyle{fancy}
+
+% Document
+\begin{document}
+    \begin{multicols*}{2}
+        \subsection*{Math Properties}
+        $log_a b = \frac{log_c b}{log_c a} = \frac{1}{log_b a}$\\
+        $P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(B|A)P(A)}{P(B)}$\\
+        \subsection*{Pre-Processing}
+        \subsubsection*{Data Cleaning}
+        \textbf{Deletion}: Remove missing values, remove duplicates\\
+        \textbf{Imputation}: Fill in missing values, mean/median/mode, similar case, forward fill,
+        interpolation, default values\\
+        \textbf{Outliers}: Unusual values with respect to rest of data\\
+        \textbf{Noise}: Random errors\\
+        \subsubsection*{Feature Engineering}
+        \textbf{Feature Transformation}: Transform features to make them more useful\\
+        \textbf{Feature Creation}: Create new features from existing features\\
+        \textbf{Normalization}: Scale features to be between 0 and 1; $\frac{x_i - x_{\min}}{x_
+                {\max} - x_{\min}}$\\
+        \textbf{Standardization}: Scale features to $\mu = 0$ and $\sigma = 1$; $\frac{x_i - \mu}{
+            \sigma}$\\
+        \textbf{Binning}: Continuous $\to$ Categorical\\
+        \textbf{Encoding}: Categorical $\to$ Numerical\\
+        \textbf{Sampling}: Reduce \textbf{dataset} size\\
+        \textbf{Aggregation}: $(x_i, y_i, z_i) \to w_i$\\
+        \textbf{Dimensionality}: Attributes/columns in single case\\
+        \textbf{Curse of Dimensionality}: More dimensions $\to$ More sparse\\
+        \textbf{Dimensionality Reduction}:\\
+        \textit{Feature Selection}: Subset of attributes, Filter, Embedded\\
+        \textit{Feature Extraction}: Decrease dimensions while keeping max variance, PCA, SVD, LDA\\
+        \subsection*{Decision Trees}
+        Grown recursively by partitioning data into subsets based on attribute values\\
+        Forms axis-parallel hyperplanes\\
+        c = number of classes, p = probability/fraction of class\\
+        \textit{Entropy}: $\sum\limits_{i=1}^{c} -p_i \log_2 p_i$\\
+        \textit{Gini}: $1 - \sum\limits_{i=1}^{c} p_i^2$\\
+        r = parent, k = number of partitions, n$_i$ = number of records in partition$_i$, Impurity
+        = (Entropy, Gini)\\
+        Entropy $\to$ Information Gain, Gini $\to$ Gini Gain\\
+        \textit{Gain}: $Impurity(r) - (\sum\limits_{i=1}^{k} \frac{n_i}{n} Impurity(i))$\\
+        \textit{Split Info}: $-\sum\limits_{i=1}^{k} \frac{n_i}{n} log_2 \frac{n_i}{n}$\\
+        \textit{Gain Ratio}: $\frac{Info Gain}{Split Info}$\\
+        \textbf{Classification}: Assign labels to objects\\
+        \textit{Descriptive Modeling}: Explain, describe, summarize\\
+        \textit{Predictive Modeling}: Predict label of unknown record\\
+        \textbf{Split Conditions}:\\
+        \textit{Continuous}: Threshold value, binning\\
+        \textit{Nominal \& Ordinal}: Multiway, binary w/ grouping\\
+        \textbf{Characteristics}: Inexpensive to construct, fast to test, easy to interpret,
+        robust to outliers(especially when pruned), redundant/irrelevant attributes don't affect
+        tree structure, eager learner\\
+        \textbf{Pre-Pruning}: Stop growing tree before it's fully grown\\
+        \subsection*{Linear Regression}
+        Finds best fit line through data\\
+        Use one-hot encoding/dummy encoding for categorical data\\
+        There's also polynomial and non-linear regression\\
+        \textbf{Least Squares}: Minimize SSE\\
+        $\hat{\beta_0} = \bar{Y} - \hat{\beta_1}\bar{X}$\\
+        $\hat{\beta_1} = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sum (X_i - \bar{X})^2}$\\
+        \textit{SSE}: $\sum_{i=1}^{n} (y_i - \hat{y_i})^2$\\
+        \textit{MSE}: $\frac{SSE}{n}$\\
+        \textit{RMSE}: $\sqrt{MSE}$\\
+        \textit{MAE}: $\frac{\sum_{i=1}^{n} \lvert y_i - \hat{y_i} \rvert}{n}$\\
+        \textit{var(mean)}: $\frac{\sum_{i=1}^{n} (y_i - \bar{y_i})^2}{n}$\\
+        \textit{var(fit)}: $\frac{\sum_{i=1}^{n} (y_i - \hat{y_i})^2}{n}$\\
+        \textit{$R^2$}: $\frac{var(mean) - var(fit)}{var(mean)}$\\
+        \textbf{Multiple Linear Regression}: $y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots +
+        \beta_d x_d$\\
+        \textbf{Characteristics}: Non-decreasing(More features never make $R^2$ worse), More
+        features $\neq$ better model, but can be better SSE)\\
+        n = number of samples, p = number of features\\
+        \textbf{Adjusted $R^2$}: $1 - \frac{(1 - R^2)(n - 1)}{n - p - 1}$\\
+        \subsection*{Cross Validation}
+        \textbf{Training Error}: Percentage misclassified(ex. SSE, $R^2$) on training set\\
+        \textbf{Test/Generalization Error}: Percentage misclassified on test/unseen set\\
+        \textbf{Holdout Method}: Split data into training and test sets; Issues- Less training
+        data, overrepresentation/underrepresentation, varying performance\\
+        \subsubsection*{K-Fold Cross Validation}
+        Split data into k folds, build model on k-1 folds, test on 1 fold, repeat k times, used
+        \textbf{ONLY} to evaluate process\\
+        Error = $\frac{1}{k} \sum_{i=1}^{k} Error_i$\\
+        Build final model using \textbf{ALL} data\\
+        \textbf{Cross Validation}: Preprocess training set and apply exact same preprocessing to
+        test set\\
+        \textbf{Overfitting}: Low training error but high test error\\
+        \textbf{Hyperparameter Tuning}: Use validation set by partitioning training set\\
+        \textit{Nested Cross Validation}: Use cross validation to tune hyperparameters, pick
+        lowest error then test using entire training set\\
+        Get best hyperparameter using hyperparameter tuning on entire dataset, then build final
+        model using the chosen hyperparameter and entire dataset\\
+        \subsection*{Nearest Neighbor}
+        Usually Euclidean distance, can use weight factor $= \frac{1}{d^2}$\\
+        \textbf{KNN}: Find k nearest neighbors, assign majority class\\
+        k too small $\to$ overfit, k too large $\to$ underfit\\
+        Find best k using cross validation\\
+        \textbf{Characteristics}: Instance-based learning, lazy learner, no training(just retune
+        k), slow testing, curse of dimensionality, feature selection critical\\
+        \subsection*{Naive Bayes}
+        X = test record(x$_1$, x$_2$, \ldots, x$_d$), C = class\\
+        $P(C|X) \propto P(x_1|C) \cdot P(x_2|C) \cdot \ldots \cdot P(x_d|C) \cdot P(C)$\\
+        \textbf{Requirements}: Independence, Binning\\
+        \textbf{Laplace Smoothing}: Used for multinomial/categorical data, add 1 to numerator and
+        v(options for the feature) to the denominator\\
+        \textbf{Characteristics}: Fast, simple, scales with higher dimensions, independence
+        assumption not always true\\
+        \subsection*{Evaluating Classifiers}
+        \textbf{Error Rate}: Fraction of incorrect predictions on testing set; $\frac{FP + FN}{n}$\\
+        \textbf{Accuracy}: Fraction of correct predictions on test set; $\frac{TP + TN}{n}$\\
+        \textbf{Confusion Matrix}: P = predicted, A = actual\\
+        For cross validation, sum all confusion matrices\\
+        \begin{tabular}{c|c|c}
+            & $+_P$ & $-_P$ \\
+            \hline
+            $+_A$ & TP    & FP    \\
+            $-_A$ & FN    & TN    \\
+        \end{tabular}\\
+        \textit{TPR/Sensitivity/Recall}: $\frac{TP}{TP + FN}$\\
+        \textit{TNR/Specificity}: $\frac{TN}{FP + TN}$\\
+        \textit{FPR}: $\frac{FP}{FP + TN}$\\
+        \textit{FNR}: $\frac{FN}{TP + FN}$\\
+        \textit{Precision}: $\frac{TP}{TP + FP}$\\
+        \textit{F-Measure}: $\frac{2 \times precision \times recall}{precision + recall}$\\
+        \textbf{Fixing Class Imbalance}:\\
+        \textit{Undersampling}: Remove some majority class samples\\
+        \textit{Oversampling}: Duplicate some minority class samples\\
+        \subsection*{Support Vector Machines}
+        Hyperplane that maximizes margin between classes\\
+        Binary classifier, can be extended to multi-class\\
+        One-hot encoding for categorical data\\
+        \textbf{Support Vectors}: Changes hyperplane if moved, points on margin boundary or on
+        the wrong side for its class\\
+        \textbf{Goal}: Minimize $\frac{\lvert\lvert w \rvert\rvert}{2}$ subject to $y_i(w \cdot
+        x_i + b) \geq 1$\\
+        \textbf{Soft Margin SVM}: Minimize $\frac{\lvert\lvert w \rvert\rvert}{2} + C(\sum_{i=1}^{N} \xi_i)$
+        subject to $y_i(w \cdot x_i + b) \geq 1 - \xi_i$\\
+        Trade-off between margin width and incorrect classification\\
+        \textbf{Kernel Methods}: Transform data into higher dimensions for linear seperability\\
+        \textbf{Characteristics}: Global optimization, requires feature scaling, extentable to
+        multi-class, no curse of dimensionality, needs cross validation(hyperparameters, kernel
+        function, cost)\\
+    \end{multicols*}
+\end{document}
