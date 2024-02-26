@@ -34,7 +34,7 @@
         \textbf{Imputation}: Fill in missing values, mean/median/mode, similar case, forward fill,
         interpolation, default values\\
         \textbf{Outliers}: Unusual values with respect to rest of data\\
-        \textbf{Noise}: Random errors\\
+        \textbf{Noise}: Random errors and variations\\
         \subsubsection*{Feature Engineering}
         \textbf{Feature Transformation}: Transform features to make them more useful\\
         \textbf{Feature Creation}: Create new features from existing features\\
@@ -61,7 +61,7 @@
         = (Entropy, Gini)\\
         Entropy $\to$ Information Gain, Gini $\to$ Gini Gain\\
         \textit{Gain}: $Impurity(r) - (\sum\limits_{i=1}^{k} \frac{n_i}{n} Impurity(i))$\\
-        \textit{Split Info}: $-\sum\limits_{i=1}^{k} \frac{n_i}{n} log_2 \frac{n_i}{n}$\\
+        \textit{Split Info}: $-\sum\limits_{i=1}^{k} \frac{n_i}{n} \log_2 \frac{n_i}{n}$\\
         \textit{Gain Ratio}: $\frac{Info Gain}{Split Info}$\\
         \textbf{Classification}: Assign labels to objects\\
         \textit{Descriptive Modeling}: Explain, describe, summarize\\
@@ -158,8 +158,16 @@
         subject to $y_i(w \cdot x_i + b) \geq 1 - \xi_i$\\
         Trade-off between margin width and incorrect classification\\
         \textbf{Kernel Methods}: Transform data into higher dimensions for linear seperability\\
-        \textbf{Characteristics}: Global optimization, requires feature scaling, extentable to
+        \textbf{Characteristics}: Global optimization, requires feature scaling, extendable to
         multi-class, no curse of dimensionality, needs cross validation(hyperparameters, kernel
         function, cost)\\
+        \subsection*{Non-Linear Regression}
+        \textbf{Regression Tree}: Decision tree with continuous output rather than
+        categorical, recursive partitioning, axis-parallel\\
+        \textbf{KNN Regression}: Continuous KNN with neighbors means as output\\
+        \textbf{Support Vector Regression}: Fit hyperplane to minimize error,
+        aka.
+        points outside tube\\
+        \textbf{Ensembles}: Bagging/Boosting, average of the base classifiers\\
     \end{multicols*}
 \end{document}
