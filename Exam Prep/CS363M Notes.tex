@@ -121,7 +121,7 @@
         \subsection*{Naive Bayes}
         X = test record(x$_1$, x$_2$, \ldots, x$_d$), C = class\\
         $P(C|X) \propto P(x_1|C) \cdot P(x_2|C) \cdot \ldots \cdot P(x_d|C) \cdot P(C)$\\
-        \textbf{Requirements}: Independence, Binning\\
+        \textbf{Requirements}: Na\"{i}ve $\to$ Independence, Binning\\
         \textbf{Laplace Smoothing}: Used for multinomial/categorical data, add 1 to numerator and
         v(options for the feature) to the denominator\\
         \textbf{Characteristics}: Fast, simple, scales with higher dimensions, independence
@@ -137,12 +137,13 @@
             $+_A$ & TP    & FN    \\
             $-_A$ & FP    & TN    \\
         \end{tabular}\\
-        \textit{TPR/Sensitivity/Recall/Coverage}: $\frac{TP}{TP + FN}$\\
-        \textit{TNR/Specificity}: $\frac{TN}{FP + TN}$\\
-        \textit{FPR}: $\frac{FP}{FP + TN}$\\
-        \textit{FNR}: $\frac{FN}{TP + FN}$\\
-        \textit{Precision}: $\frac{TP}{TP + FP}$\\
-        \textit{F-Measure}: $\frac{2 \times precision \times recall}{precision + recall}$\\
+        \textit{TPR/Sensitivity/Recall/Coverage}: $\frac{TP}{TP + FN}$, higher better\\
+        \textit{TNR/Specificity}: $\frac{TN}{FP + TN}$, higher better\\
+        \textit{FPR}: $\frac{FP}{FP + TN}$, lower better\\
+        \textit{FNR}: $\frac{FN}{TP + FN}$, lower better\\
+        \textit{Precision}: $\frac{TP}{TP + FP}$, higher better\\
+        \textit{F-Measure}: $\frac{2 \times precision \times recall}{precision + recall}$, higher
+        better\\
         \textbf{Fixing Class Imbalance}:\\
         \textit{Undersampling}: Remove some majority class samples\\
         \textit{Oversampling}: Duplicate some minority class samples\\
