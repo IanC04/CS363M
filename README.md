@@ -4,4 +4,4 @@ Principles of Machine Learning I
 ## Description
 My solutions to the coding assignments and practice problems
 
-### [My Exam Notes](out/Notes.pdf)
+### [My Exam Notes](out/CS363M Notes.pdf)
