@@ -19,7 +19,7 @@
 \fancyhf{}
 \fancyhead[L]{Ian Chen}
 \fancyhead[C]{CS363M Notes}
-\fancyhead[R]{ic8683}
+\fancyhead[R]{\today}
 \pagestyle{fancy}
 
 % Document
@@ -122,8 +122,9 @@
         X = test record(x$_1$, x$_2$, \ldots, x$_d$), C = class\\
         $P(C|X) \propto P(x_1|C) \cdot P(x_2|C) \cdot \ldots \cdot P(x_d|C) \cdot P(C)$\\
         \textbf{Requirements}: Na\"{i}ve $\to$ Independence, Binning\\
-        \textbf{Laplace Smoothing}: Used for multinomial/categorical data, add 1 to numerator and
-        v(options for the feature) to the denominator\\
+        \textbf{Laplace Smoothing}: $\frac{x_i + \alpha}{C + \alpha v}$ for multinomial
+        /categorical data, add $\alpha = 1$ to numerator and v(options for the feature) to the
+        denominator, $\alpha$ = smoothing factor\\
         \textbf{Characteristics}: Fast, simple, scales with higher dimensions, independence
         assumption not always true\\
         \subsection*{Evaluating Classifiers}
