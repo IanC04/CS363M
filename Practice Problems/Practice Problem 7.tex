@@ -35,13 +35,103 @@
         How would this neural network classify the record (Class A or Class B)?\\
         \begin{tabular}{|c|c|c|}
             \hline
-            Feature1 & Feature2 & Class\\
+            Feature1 & Feature2 & Class \\
             \hline
-            5 & 10 & ?\\
+            5        & 10       & ?     \\
             \hline
         \end{tabular}
     \end{problem}
     \begin{answer}
-        % TODO Add answer
+        The forward pass of the neural network is as follows:\\
+        $\begin{bmatrix}
+             A1 & A2 & 1 \\
+        \end{bmatrix}
+        \times
+        \begin{bmatrix}
+            0.8 & -0.5 \\
+            0.3 & 0.2  \\
+            0.3 & -0.8 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            net_{B1} & net_{B2} \\
+        \end{bmatrix}\\
+        \phi_{sign}(
+        \begin{bmatrix}
+            net_{B1} & net_{B2} \\
+        \end{bmatrix}
+        )
+        \to
+        \begin{bmatrix}
+            B1 & B2 \\
+        \end{bmatrix}$\\
+        $\begin{bmatrix}
+             B1 & B2 & 1 \\
+        \end{bmatrix}
+        \times
+        \begin{bmatrix}
+            -0.4 & 0.7 \\
+            0.4  & 0.2 \\
+            0.1  & 0.7 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            net_{C1} & net_{C2} \\
+        \end{bmatrix}$\\
+        $\phi_{step}(
+        \begin{bmatrix}
+            net_{C1} & net_{C2} \\
+        \end{bmatrix}
+        )
+        \to
+        \begin{bmatrix}
+            C1 & C2 \\
+        \end{bmatrix}$\\
+        Plugging in 5 for A1 and 10 for A2, we get the following forward pass:\\
+        $\begin{bmatrix}
+             5 & 10 & 1 \\
+        \end{bmatrix}
+        \times
+        \begin{bmatrix}
+            0.8 & -0.5 \\
+            0.3 & 0.2  \\
+            0.3 & -0.8 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            7.3 & -1.3 \\
+        \end{bmatrix}\\
+        \phi_{sign}(
+        \begin{bmatrix}
+            7.3 & -1.3 \\
+        \end{bmatrix}
+        )
+        \to
+        \begin{bmatrix}
+            1 & -1 \\
+        \end{bmatrix}$\\
+        $\begin{bmatrix}
+             1 & -1 & 1 \\
+        \end{bmatrix}
+        \times
+        \begin{bmatrix}
+            -0.4 & 0.7 \\
+            0.4  & 0.2 \\
+            0.1  & 0.7 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            -0.7 & 1.2 \\
+        \end{bmatrix}$\\
+        $\phi_{step}(
+        \begin{bmatrix}
+            -0.7 & 1.2 \\
+        \end{bmatrix}
+        )
+        \to
+        \begin{bmatrix}
+            0 & 1 \\
+        \end{bmatrix}$\\
+        The record would be classified as Class B
     \end{answer}
 \end{document}
