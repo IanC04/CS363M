@@ -1,0 +1,67 @@
+%! Author = Ian Chen
+%! Date = 3/19/2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{calc}
+\usepackage{amsthm}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\author{Ian Chen}
+\title{Practice Problem 8}
+
+\newtheoremstyle{description}
+{25pt}{\topsep}{\normalfont}{}{\bfseries}{ \textemdash}{ }{}
+\newtheoremstyle{break}
+{\topsep}{\topsep}{\itshape}{}{\bfseries}{}{\newline}{}
+
+\theoremstyle{description}
+\newtheorem{problem}{Problem}
+\theoremstyle{break}
+\newtheorem*{answer}{Answer}
+
+% Document
+\begin{document}
+    \maketitle
+
+    \begin{problem}
+        You pass in a training example that has the disease, and get outputs from all of the
+        nodes as follows:\\
+        \begin{tabular}{ccc}
+            A1 = 0.2 & B1 = 0.7 & C1 = 0.4 \\
+            A2 = 0.8 & B2 = 0.5 & C2 = 0.6 \\
+        \end{tabular}\\
+        Backpropagate the error to adjust the indicated weight (w), using a learning rate of 1.
+        What is the new w after backpropagation?
+    \end{problem}
+    \begin{answer}
+        I'll label each edge starting from top to bottom then left to right for clarity.\\
+        $\frac{\partial E}{\partial w_3} =
+        (\frac{\partial E}{\partial Y'1} \cdot
+        \frac{\partial Y'1}{\partial net_{C1}} \cdot
+        \frac{\partial net_{C1}}{\partial B1} +
+        \frac{\partial E}{\partial Y'2} \cdot
+        \frac{\partial Y'2}{\partial net_{C2}} \cdot
+        \frac{\partial net_{C2}}{\partial B1}) \cdot
+        \frac{\partial B1}{\partial net_{B1}} \cdot
+        \frac{\partial net_{B1}}{\partial w_3}$\\
+        $\frac{\partial E}{\partial Y'1} = (Y'1 - Y)$\\
+        $\frac{\partial Y'1}{\partial net_{C1}} = Y'1(1 - Y'1)$\\
+        $\frac{\partial net_{C1}}{\partial B1} = w_7$\\
+        $\frac{\partial E}{\partial Y'2} = (Y'2 - Y)$\\
+        $\frac{\partial Y'2}{\partial net_{C2}} = Y'2(1 - Y'2)$\\
+        $\frac{\partial net_{C2}}{\partial B1} = w_8$\\
+        $\frac{\partial B1}{\partial net_{B1}} = B1(1 - B1)$\\
+        $\frac{\partial net_{B1}}{\partial w_3} = A2$\\
+        $\frac{\partial E}{\partial w_3} = ((0.4 - 0) \cdot 0.4(1 - 0.4) \cdot -0.4 +
+        (0.6 - 1) \cdot 0.6(1 - 0.6) \cdot 0.7) \cdot 0.7(1 - 0.7) \cdot 0.2 = -0.0044352$\\
+        $w_3^{new} = w_3 - \alpha \frac{\partial E}{\partial w_3}$\\
+        $w_3^{new} = 0.3 - 1 \times -0.0044352 = 0.3044352$
+    \end{answer}
+\end{document}
