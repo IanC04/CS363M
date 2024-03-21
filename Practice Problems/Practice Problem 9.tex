@@ -1,0 +1,44 @@
+%! Author = Ian Chen
+%! Date = 3/21/2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{calc}
+\usepackage{amsthm}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\author{Ian Chen}
+\title{Practice Problem 9}
+
+\newtheoremstyle{description}
+{25pt}{\topsep}{\normalfont}{}{\bfseries}{ \textemdash}{ }{}
+\newtheoremstyle{break}
+{\topsep}{\topsep}{\itshape}{}{\bfseries}{}{\newline}{}
+
+\theoremstyle{description}
+\newtheorem{problem}{Problem}
+\theoremstyle{break}
+\newtheorem*{answer}{Answer}
+
+% Document
+\begin{document}
+    \maketitle
+
+    \begin{problem}
+        Given the above data points, perform a k-means clustering on this dataset using Euclidean
+        distance as the distance function.
+        Here, k is chosen to be 3.
+        The initial centroids are randomly selected as (1,1), (1,2), (3,1).
+        Show the steps of the algorithm until convergence.
+        What are the final clusters and their final centroids?
+    \end{problem}
+    \begin{answer}
+        % TODO Add answer
+    \end{answer}
+\end{document}
