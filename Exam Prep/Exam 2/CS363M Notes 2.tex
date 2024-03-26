@@ -1,0 +1,35 @@
+%! Author = Ian
+%! Date = 3/25/2024
+
+% Preamble
+\documentclass{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage[top=2cm, left=2cm, right=2cm, bottom=2cm]{geometry}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\setlength{\columnsep}{0.5cm}
+
+\author{Ian Chen}
+\date{\today}
+
+% Header
+\fancyhf{}
+\fancyhead[L]{Ian Chen}
+\fancyhead[C]{CS363M Exam 2 Notes}
+\fancyhead[R]{\today}
+\pagestyle{fancy}
+
+% Document
+\begin{document}
+    \begin{multicols*}{2}
+        \subsection*{Math Properties}
+        $log_a b = \frac{log_c b}{log_c a} = \frac{1}{log_b a}$\\
+        $P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(B|A)P(A)}{P(B)}$\\
+        \subsection*{Ensemble Methods}
+        \subsubsection*{Bagging}
+        \subsubsection*{Boosting}
+    \end{multicols*}
+\end{document}
