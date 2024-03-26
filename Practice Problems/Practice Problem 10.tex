@@ -1,0 +1,69 @@
+%! Author = Ian Chen
+%! Date = 3/26/2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{calc}
+\usepackage{amsthm}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\author{Ian Chen}
+\title{Practice Problem 10}
+
+\newtheoremstyle{description}
+{25pt}{\topsep}{\normalfont}{}{\bfseries}{ \textemdash}{ }{}
+\newtheoremstyle{break}
+{\topsep}{\topsep}{\itshape}{}{\bfseries}{}{\newline}{}
+
+\theoremstyle{description}
+\newtheorem{problem}{Problem}
+\theoremstyle{break}
+\newtheorem*{answer}{Answer}
+
+% Document
+\begin{document}
+    \maketitle
+
+    \begin{problem}
+        Assuming some Eps, which would require a higher value for MinPts:\\
+        Identifying A\&B as clusters, or identifying C\&D as clusters?
+    \end{problem}
+    \begin{answer}
+        C \& D would require a higher minimum points, as for any given radius,
+        A\&B have more points within it compared to C\&D.
+    \end{answer}
+
+    \begin{problem}
+        Using an Eps and MinPts that identifies C and D as clusters,
+        what areas would be identified as noise?
+        And how many total clusters would be found?
+    \end{problem}
+    \begin{answer}
+        \textbf{3}\\
+        (A, B, E)- would be considered one cluster as all the regions meet
+        the threshold for a cluster.\\
+        (C)- meets threshold for cluster.\\
+        (D)- meets threshold for cluster.\\
+        F isn't part of a cluster, as the region isn't dense enough, so it'll be
+        considered noise.
+    \end{answer}
+
+    \begin{problem}
+        Using an Eps and MinPts that identifies A and B as clusters,
+        what areas would be identified as noise?
+        And how many total clusters would be found?
+    \end{problem}
+    \begin{answer}
+        \textbf{2}\\
+        (A)- meets threshold for cluster.\\
+        (B)- meets threshold for cluster.\\
+        C, D, E, F- All considered noise as the regions aren't dense enough for
+        the points to be clustered.
+    \end{answer}
+\end{document}
