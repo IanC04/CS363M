@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/Assignments/Assignment 1/Data Cleaning Tutorial/Data Cleaning &amp; Exploration/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/Assignments/Assignment 1/Pandas &amp; Matplotlib Tutorial/Pandas &amp; Matplotlib Tutorial/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/copilot/chatSessions" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.11" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
